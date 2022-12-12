@@ -130,11 +130,24 @@ function displayDetails(movie){
         function buyTicket(){
             if(ticketsAmount>0){
                 ticketsAmount-=1;
+                reduceTickets();
                 determineButtonStyle(button,ticketsAmount);
                 displayMovieInfo();
             }
             determineMenuItemStyle(movie,ticketsAmount);
             return;
+
+            function reduceTickets(){
+                fetch(`${API}/${movie.id}`,{
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({tickets_sold: movie.capacity-ticketsAmount})
+                })
+                .then(resp=>resp.json)
+                .then(data=>print(data))
+            }
         }
     }
 

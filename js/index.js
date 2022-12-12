@@ -42,16 +42,19 @@ function createMovieListItem(movie){
 
     // add event listener to delete button
     deleteButton.addEventListener('click',()=>{
-        fetch(`${API}/${movie.id}`,{
-            method:'DELETE',
-        })
-        .then(resp=>resp.json())
-        .then(data=>{
-            document.getElementById(`${movie.title}-menu-item`).remove();
-            fetch(API)
+        if(confirm(`Confirm that you wish to delete ${movie.title} from list of movies. Operation is permanent`) == true){
+            fetch(`${API}/${movie.id}`,{
+                method:'DELETE',
+            })
             .then(resp=>resp.json())
-            .then(movies=>displayDetails(movies[0]))
-        })
+            .then(data=>{
+                document.getElementById(`${movie.title}-menu-item`).remove();
+                fetch(API)
+                .then(resp=>resp.json())
+                .then(movies=>displayDetails(movies[0]))
+            })
+        }
+        
     })
 
     // append movie title to li text content

@@ -107,8 +107,11 @@ function displayDetails(movie){
         buyTicketDiv.append(button);
 
         function buyTicket(){
-            ticketsAmount-=1;
-            displayMovieInfo();
+            if(ticketsAmount>0){
+                ticketsAmount-=1;
+                displayMovieInfo();
+            }
+            return;
         }
     }
 }

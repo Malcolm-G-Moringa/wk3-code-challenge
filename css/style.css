@@ -1,5 +1,4 @@
 img{
-    width: 635px;
-    height: auto;
+    max-width: 635px;
     max-height: 500px;
 }

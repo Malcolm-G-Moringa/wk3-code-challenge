@@ -42,7 +42,7 @@ function createMovieListItem(movie){
 
     // add event listener to delete button
     deleteButton.addEventListener('click',()=>{
-        if(confirm(`Confirm that you wish to delete ${movie.title} from list of movies. Operation is permanent`) == true){
+        if(confirm(`Confirm that you wish to delete "${movie.title}". Operation is permanent`) == true){
             fetch(`${API}/${movie.id}`,{
                 method:'DELETE',
             })

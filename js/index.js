@@ -40,6 +40,20 @@ function createMovieListItem(movie){
     deleteButton.classList = ('btn btn-warning btn-sm ms-4');
     deleteButton.textContent = 'delete'
 
+    // add event listener to delete button
+    deleteButton.addEventListener('click',()=>{
+        fetch(`${API}/${movie.id}`,{
+            method:'DELETE',
+        })
+        .then(resp=>resp.json())
+        .then(data=>{
+            document.getElementById(`${movie.title}-menu-item`).remove();
+            fetch(API)
+            .then(resp=>resp.json())
+            .then(movies=>displayDetails(movies[0]))
+        })
+    })
+
     // append movie title to li text content
     li.textContent = `${movie.title}`;
 

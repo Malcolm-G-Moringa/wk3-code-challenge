@@ -55,7 +55,6 @@ function createMovieListItem(movie){
                 .then(movies=>displayDetails(movies[0]))
             })
         }
-        
     })
 
     // append movie title to li text content

@@ -17,18 +17,22 @@ fetch(API)
 
 function initialize(movies){
     print(movies);
-    displayDetails(movies[0]);
     // loop through data and get the movie titles
     for(let movie of movies){
         createMovieListItem(movie);
     }
+    displayDetails(movies[0]);
 }
 
 // Function to create a movie item and append to movie menu
 function createMovieListItem(movie){
+    // create variable that shows tickets available
+    let ticketsAmount = movie.capacity - movie.tickets_sold;
+
     // create list element
     const li = document.createElement('li');
     li.classList = ('list-group-item');
+    li.id = (`${movie.title}-menu-item`)
 
     // create button element
     const deleteButton = document.createElement('button');
@@ -45,6 +49,9 @@ function createMovieListItem(movie){
     // append li to menu list
     movieList.append(li);
 
+    // determine style of list element based on tickets available
+    determineMenuItemStyle(movie,ticketsAmount);
+
     // add event listener to li item
     li.addEventListener('click',()=>displayDetails(movie));
 }
@@ -55,9 +62,12 @@ function displayDetails(movie){
 
     // call functions to display the details
     displayMoviePoster();
-    displayMovieInfo(ticketsAmount);
+    displayMovieInfo();
     addBuyTicketsButton();
     displayMovieTitle();
+
+    // determine the style of menu list item
+    determineMenuItemStyle(movie,ticketsAmount);
     
     // function to display the movie title
     function displayMovieTitle(){
@@ -123,6 +133,7 @@ function displayDetails(movie){
                 determineButtonStyle(button,ticketsAmount);
                 displayMovieInfo();
             }
+            determineMenuItemStyle(movie,ticketsAmount);
             return;
         }
     }
@@ -131,6 +142,18 @@ function displayDetails(movie){
         if(ticketsAmount==0){
             button.textContent = "Sold Out"
             button.setAttribute('disabled','');
+        }
+        return;
+    }
+}
+
+function determineMenuItemStyle(movie,ticketsAmount){
+    if (ticketsAmount==0){
+        document.getElementById(`${movie.title}-menu-item`).classList.add('list-group-item-secondary');
+    }
+    else{
+        if(document.getElementById(`${movie.title}-menu-item`).classList.contains('list-group-item-secondary')){
+            document.getElementById(`${movie.title}-menu-item`).classList.remove('list-group-item-secondary');
         }
         return;
     }

@@ -53,7 +53,11 @@ function createMovieListItem(movie){
     determineMenuItemStyle(movie,ticketsAmount);
 
     // add event listener to li item
-    li.addEventListener('click',()=>displayDetails(movie));
+    li.addEventListener('click',()=>{
+        fetch(`${API}/${movie.id}`)
+        .then(resp=>resp.json())
+        .then(movie=>displayDetails(movie))
+    });
 }
 
 function displayDetails(movie){

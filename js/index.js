@@ -69,14 +69,17 @@ function displayDetails(movie){
         // create p element for runtime
         const pRuntime = document.createElement('p');
         pRuntime.textContent = `Runtime(minutes) : ${movie.runtime}`;
+        pRuntime.classList = ('card-text mb-4');
 
         // create p element for showtime
         const pShowtime = document.createElement('p');
         pShowtime.textContent = `Showtime : ${movie.showtime}`;
+        pShowtime.classList = ('card-text mb-4');
 
         // create p element for available tickets
         const pTickets = document.createElement('p');
         pTickets.textContent = `Available Tickets : ${movie.showtime}`;
+        pTickets.classList = ('card-text mb-4');
 
         // append p elements to details-body
         detailsBody.append(pRuntime,pShowtime,pTickets);

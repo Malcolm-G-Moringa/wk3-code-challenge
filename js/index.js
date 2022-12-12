@@ -99,6 +99,9 @@ function displayDetails(movie){
         button.classList = ('btn btn-outline-danger col-6 mx-auto');
         button.textContent = 'Buy Ticket';
 
+        // Determine button style based on tickets available
+        determineButtonStyle(button,ticketsAmount);
+
         // add event listener to button
         button.addEventListener('click',()=>buyTicket());
 
@@ -109,9 +112,18 @@ function displayDetails(movie){
         function buyTicket(){
             if(ticketsAmount>0){
                 ticketsAmount-=1;
+                determineButtonStyle(button,ticketsAmount);
                 displayMovieInfo();
             }
             return;
         }
+    }
+
+    function determineButtonStyle(button){
+        if(ticketsAmount==0){
+            button.textContent = "Sold Out"
+            button.setAttribute('disabled','');
+        }
+        return;
     }
 }

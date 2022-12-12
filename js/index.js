@@ -31,7 +31,7 @@ function createMovieListItem(movie){
 
     // create list element
     const li = document.createElement('li');
-    li.classList = ('list-group-item');
+    li.classList = ('list-group-item d-flex justify-content-between');
     li.id = (`${movie.title}-menu-item`)
 
     // create button element

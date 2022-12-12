@@ -4,102 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Flatdango</title>
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/bootstrap.js" defer></script>
     <script src="./js/index.js" defer></script>
 </head>
 <body>
-    <!-- <div class="container">
-        <h1 class="col-6 mx-auto mt-1">Flatdango App</h1>
-    </div>
-    <div id="movie-details" class="container mt-5">
-        <div id="first-movie-card" class="card col-12">
-            <div class="row">
-                <div id="first-movie-poster-div" class="col-6">
-                    <img src="https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg" alt="1st movie poster" class="card-img">
-                </div>
-                <div class="col-6 card-body">
-                    <h5 class="card-title">The Giant Gila Monster</h5>
-                    <p class="card-text">A giant lizard terrorizes a rural Texas community and a heroic teenager attempts to destroy the creature.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 mx-auto mt-1">
-                    <button class="btn btn-outline-danger col-12 ms-auto" type="button">Buy Ticket +</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <!-- <div class="card mb-3 mt-3 mx-5" >
-        <div class="card-header text-center">
-            Featured
-        </div>
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg" alt="1st movie poster" class="card-img">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">The Giant Gila Monster</h5>
-                <p class="card-text">A giant lizard terrorizes a rural Texas community and a heroic teenager attempts to destroy the creature.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-            <div class="col-6 mx-auto mt-1">
-                <button class="btn btn-outline-danger col-12 ms-auto" type="button">Buy Ticket +</button>
-            </div>
-        </div>
-    </div> -->
-
-    <div class="container">
-        <div class="card text-bg-light mb-3 mt-3 mx-5">
-            <div class="text-bg-info card-header text-center">Flatdango</div>
-            <div class="row g-0">
-                <div class="text-bg-light col-md-4">
-                    <h5 class="card-header text-bg-info mt-3">Movie List</h5>
-                    <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">
+    <div id="main-container" class="container">
+        <div id="main-card" class="card text-bg-light mb-3 mt-3 mx-5">
+            <h4 id="app-title" class="text-bg-info card-header text-center">Now Showing</h4>
+            <div id="main-row-div" class="row g-0">
+                <div id="menu-div" class="text-bg-light col-md-4 mt-3">
+                    <h5 id="menu-header" class="card-header text-bg-info">Movie List</h5>
+                    <ul id="movie-list" class="list-group">
+                        <!-- <li class="list-group-item active" aria-current="true">
                             An active item
                             <button type="button" class="btn btn-warning btn-sm ms-4">Delete</button>
                         </li>
                         <li class="list-group-item">
                             A second item
                             <button type="button" class="btn btn-warning btn-sm ms-4">Delete</button>
-                        </li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">And a fifth one</li>
-                      </ul>
+                        </li> -->
+                    </ul>
                 </div>
-                <div class="text-bg-light col-md-8">
-                  <div class="card-body">
-                    <div class="card mb-3 mx-5" >
-                        <h5 class="text-bg-info card-header text-center">
+                <div id="details-div" class="text-bg-light col-md-8 mt-3">
+                    <div id="details-card" class="card mb-2 mx-4" >
+                        <h5 id="movie-title" class="text-bg-info card-header text-center">
                             The Giant Gila Monster
                         </h5>
-                        <div class="row g-0">
-                          <div class="col-md-4">
-                            <img src="https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg" alt="1st movie poster" class="card-img">
+                        <div id="details-row-div" class="row g-0">
+                          <div id="image-div" class="col-md-4">
+                            <!-- <img src="https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg" alt="1st movie poster" class="card-img"> -->
                           </div>
-                          <div class="col-md-8">
-                            <div class="card-body">
+                          <div id="details-body" class="card-body col-md-8">
                                 <p class="card-text mb-4">Runtime(minutes):108</p>
                                 <p class="card-text mb-4">Showtime: 4:00pm</p>
                                 <p class="card-text mb-4">Available Tickets: 12</p>
-                            </div>
                           </div>
                         </div>
-                        <div class="row">
-                            <div class="col-6 mx-auto mt-1">
-                                <button class="btn btn-outline-danger col-12 ms-auto" type="button">Buy Ticket +</button>
-                            </div>
+                        <div id="button-div" class="row g-0 mt-1">
+                            <button class="btn btn-outline-danger col-6 mx-auto" type="button">Buy Ticket +</button>
                         </div>
                     </div>
-                  </div>
                 </div>
             </div>
         </div>

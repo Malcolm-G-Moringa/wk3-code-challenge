@@ -56,7 +56,7 @@ function createMovieListItem(movie){
     li.addEventListener('click',()=>{
         fetch(`${API}/${movie.id}`)
         .then(resp=>resp.json())
-        .then(movie=>displayDetails(movie))
+        .then(data=>displayDetails(data))
     });
 }
 

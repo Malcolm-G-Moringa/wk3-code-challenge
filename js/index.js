@@ -8,6 +8,7 @@ const movieList = document.getElementById('movie-list');
 const imageDiv = document.getElementById('image-div');
 const detailsBody = document.getElementById('details-body');
 const buyTicketDiv = document.getElementById('button-div');
+const movieTitle = document.getElementById('movie-title');
 
 fetch(API)
     .then(resp=>resp.json())
@@ -56,7 +57,14 @@ function displayDetails(movie){
     displayMoviePoster();
     displayMovieInfo(ticketsAmount);
     addBuyTicketsButton();
+    displayMovieTitle();
     
+    // function to display the movie title
+    function displayMovieTitle(){
+        //change the movie title element to the title of the movie
+        movieTitle.textContent = `${movie.title}`
+    }
+
     // function to display image
     function displayMoviePoster(){
         // create imgae element

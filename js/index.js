@@ -7,6 +7,7 @@ const mainRow = document.getElementById('main-row-div');
 const movieList = document.getElementById('movie-list');
 const imageDiv = document.getElementById('image-div');
 const detailsBody = document.getElementById('details-body');
+const buyTicketDiv = document.getElementById('button-div');
 
 fetch(API)
     .then(resp=>resp.json())
@@ -48,8 +49,13 @@ function createMovieListItem(movie){
 }
 
 function displayDetails(movie){
+    // Create variable thatshows available tickets
+    let ticketsAmount = movie.capacity - movie.tickets_sold;
+
+    // call functions to display the details
     displayMoviePoster();
-    displayMovieInfo();
+    displayMovieInfo(ticketsAmount);
+    addBuyTicketsButton();
     
     // function to display image
     function displayMoviePoster(){
@@ -78,10 +84,31 @@ function displayDetails(movie){
 
         // create p element for available tickets
         const pTickets = document.createElement('p');
-        pTickets.textContent = `Available Tickets : ${movie.showtime}`;
+        pTickets.textContent = `Available Tickets : ${ticketsAmount}`;
         pTickets.classList = ('card-text mb-4');
 
         // append p elements to details-body
+        detailsBody.innerHTML = '';
         detailsBody.append(pRuntime,pShowtime,pTickets);
+    }
+
+    function addBuyTicketsButton(){
+        // create button element
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.classList = ('btn btn-outline-danger col-6 mx-auto');
+        button.textContent = 'Buy Ticket';
+
+        // add event listener to button
+        button.addEventListener('click',()=>buyTicket());
+
+        // append button element to button-div
+        buyTicketDiv.innerHTML = '';
+        buyTicketDiv.append(button);
+
+        function buyTicket(){
+            ticketsAmount-=1;
+            displayMovieInfo();
+        }
     }
 }

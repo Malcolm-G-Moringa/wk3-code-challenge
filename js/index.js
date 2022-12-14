@@ -151,7 +151,7 @@ function displayDetails(movie){
         function buyTicket(){
             if(ticketsAmount>0){
                 ticketsAmount-=1;
-                reduceTickets();
+                // reduceTickets();
                 determineButtonStyle(button,ticketsAmount);
                 displayMovieInfo();
             }

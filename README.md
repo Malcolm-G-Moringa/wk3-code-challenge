@@ -60,7 +60,10 @@ To run the application, follow these steps:
 - In the VS code project terminal or in the system terminal while in the project directory, run the following command:\
   `json-server --watch db.json`\
   The above command will allow the db.json file to act as a server for the application.
-- Access the website by going to the following link: `https://malcolm-g-moringa.github.io/wk3-code-challenge/`.
+- Access the website by going to the following link:
+   
+                https://malcolm-g-moringa.github.io/wk3-code-challenge/.
+
 - Alternatively, you can open index.html by running in the terminal the command: `open index.html` or by navigating to the folder containing the index.html file through the file manager of your system and double-clicking on the file.
 
 ---

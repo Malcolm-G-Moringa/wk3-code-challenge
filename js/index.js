@@ -40,9 +40,10 @@ function createMovieListItem(movie){
     deleteButton.textContent = 'delete'
 
     // add event listener to delete button
-    // deleteButton.addEventListener('click',(e)=>{
-    //     e.stopPropagation();
-    //     if(confirm(`Confirm that you wish to delete "${movie.title}". Operation is permanent`) == true){
+    deleteButton.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        if(confirm(`Confirm that you wish to delete "${movie.title}". Operation is permanent`) == true){
+            print(`Deleted ${movie.title}`);
     //         fetch(`${API}/${movie.id}`,{
     //             method:'DELETE',
     //         })
@@ -53,8 +54,8 @@ function createMovieListItem(movie){
     //             .then(resp=>resp.json())
     //             .then(movies=>displayDetails(movies[0]))
     //         })
-    //     }
-    // })
+        }
+    })
 
     // append movie title to li text content
     li.textContent = `${movie.title}`;

@@ -16,7 +16,6 @@ fetch(API)
 
 
 function initialize(movies){
-    print(movies);
     // loop through data and get the movie titles
     for(let movie of movies){
         createMovieListItem(movie);
@@ -41,21 +40,21 @@ function createMovieListItem(movie){
     deleteButton.textContent = 'delete'
 
     // add event listener to delete button
-    deleteButton.addEventListener('click',(e)=>{
-        e.stopPropagation();
-        if(confirm(`Confirm that you wish to delete "${movie.title}". Operation is permanent`) == true){
-            fetch(`${API}/${movie.id}`,{
-                method:'DELETE',
-            })
-            .then(resp=>resp.json())
-            .then(data=>{
-                document.getElementById(`${movie.title}-menu-item`).remove();
-                fetch(API)
-                .then(resp=>resp.json())
-                .then(movies=>displayDetails(movies[0]))
-            })
-        }
-    })
+    // deleteButton.addEventListener('click',(e)=>{
+    //     e.stopPropagation();
+    //     if(confirm(`Confirm that you wish to delete "${movie.title}". Operation is permanent`) == true){
+    //         fetch(`${API}/${movie.id}`,{
+    //             method:'DELETE',
+    //         })
+    //         .then(resp=>resp.json())
+    //         .then(data=>{
+    //             document.getElementById(`${movie.title}-menu-item`).remove();
+    //             fetch(API)
+    //             .then(resp=>resp.json())
+    //             .then(movies=>displayDetails(movies[0]))
+    //         })
+    //     }
+    // })
 
     // append movie title to li text content
     li.textContent = `${movie.title}`;
@@ -158,17 +157,17 @@ function displayDetails(movie){
             determineMenuItemStyle(movie,ticketsAmount);
             return;
 
-            function reduceTickets(){
-                fetch(`${API}/${movie.id}`,{
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({tickets_sold: movie.capacity-ticketsAmount})
-                })
-                .then(resp=>resp.json)
-                .then(data=>print(data))
-            }
+            // function reduceTickets(){
+            //     fetch(`${API}/${movie.id}`,{
+            //         method: 'PATCH',
+            //         headers: {
+            //             'Content-Type': 'application/json',
+            //         },
+            //         body: JSON.stringify({tickets_sold: movie.capacity-ticketsAmount})
+            //     })
+            //     .then(resp=>resp.json)
+            //     .then(data=>print(data))
+            // }
         }
     }
 

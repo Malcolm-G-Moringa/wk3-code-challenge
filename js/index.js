@@ -1,6 +1,6 @@
 // GLOBAL VARIABLES
 const print = stuff=>console.log(stuff);
-const API = "http://localhost:3000/films";
+const API = "https://malcolm-g-moringa.github.io/wk3-code-challenge/db.json";
 
 // ROWS DATA
 const mainRow = document.getElementById('main-row-div');
@@ -12,7 +12,7 @@ const movieTitle = document.getElementById('movie-title');
 
 fetch(API)
     .then(resp=>resp.json())
-        .then(initialize)
+        .then(data=>initialize(data['films']))
 
 
 function initialize(movies){
@@ -71,9 +71,9 @@ function createMovieListItem(movie){
 
     // add event listener to li item
     li.addEventListener('click',()=>{
-        fetch(`${API}/${movie.id}`)
+        fetch(`${API}`)
         .then(resp=>resp.json())
-        .then(data=>displayDetails(data))
+        .then(data=>displayDetails(getMovie(data['films'],movie.id)))
     });
 }
 
@@ -191,4 +191,9 @@ function determineMenuItemStyle(movie,ticketsAmount){
         }
         return;
     }
+}
+
+function getMovie(movies,movieId){
+    const index = movies.findIndex(movie=>movie.id==movieId)
+    return movies[index];
 }

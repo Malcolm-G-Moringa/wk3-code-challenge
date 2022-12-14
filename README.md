@@ -20,6 +20,10 @@ JSON server may be installed using npm by running the following command:\
 This installs JSON server globally on your system allowing you to use it in any project.
 
 ### Installation of application
+Installation of the application is required to use features such as the delete button and updating the number of tickets bought on the db.json file.
+
+  ***NB:* Make sure to install from the main branch**.
+
 
 The installation steps below are described for a linux machine.\
 To use this repo on your machine requires some simple steps
@@ -55,16 +59,18 @@ To use this repo on your machine requires some simple steps
         git clone https://github.com/your-username-here/wk3-code-challenge.git
 
 ### Running the application
-To run the application, follow these steps:
+If you wish to run application from cloned repository:
 
 - In the VS code project terminal or in the system terminal while in the project directory, run the following command:\
   `json-server --watch db.json`\
   The above command will allow the db.json file to act as a server for the application.
+- Then open index.html by running in the terminal the command: `open index.html` or by navigating to the folder containing the index.html file through the file manager of your system and double-clicking on the file.
+
+If you wish to access the application without cloning it to your computer,simply follow this simple step:
 - Access the website by going to the following link:
    
                 https://malcolm-g-moringa.github.io/wk3-code-challenge/.
 
-- Alternatively, you can open index.html by running in the terminal the command: `open index.html` or by navigating to the folder containing the index.html file through the file manager of your system and double-clicking on the file.
 
 ---
 ## Authors
